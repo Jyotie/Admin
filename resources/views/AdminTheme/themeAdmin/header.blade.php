@@ -10,7 +10,7 @@
       <a href="/" class="navbar-brand"> 
         <b>LA QARMITA</b>
       </a>
-
+        
       <ul class="nav navbar-nav search-nav">
         <li>
           <div class="search">
@@ -24,25 +24,24 @@
         </li>
       </ul>
 
+      <nav class="nav navbar-nav navbar-right user-nav">
+          
+        @guest
+            <a class="nav-link ml-auto" href="{{ route('login') }}">Acceder</a>
+            <a class="nav-link" href="{{ route('register') }}">Registro</a>      
+                @else
+                  <a class="nav-link ml-auto" href="{{ route('login') }}">{{ Auth::user()->name }}</a>
+                  <a class="nav-link" href="{{ route('logout') }}"
+                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                    Desconectarse          
+                  </a>
 
-      <ul class="nav navbar-nav navbar-right user-nav">
-        <li class="user-name"><span>Nombre Usuario</span></li>
-          <li class="dropdown avatar-dropdown">
-            <img src="asset/img/avatar.jpg" class="img-circle avatar" alt="user name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"/>
-            <ul class="dropdown-menu user-dropdown">
-              <li><a href="perfil"><span class="fa fa-user"></span> Mi Perfil</a></li>
-              <li><a href="#"><span class="fa fa-calendar"></span> Mi Calendario</a></li>
-              <li role="separator" class="divider"></li>
-              <li class="more">
-                <ul>
-                  <li><a href=""><span class="fa fa-cogs"></span></a></li>
-                  <li><a href=""><span class="fa fa-lock"></span></a></li>
-                  <li><a href=""><span class="fa fa-power-off "></span></a></li>
-                </ul>
-              </li>
-            </ul>
-          </li>
-      </ul>
+                  <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                  </form>
+        @endguest
+
+      </nav>
     </div>
   </div>
 </nav>

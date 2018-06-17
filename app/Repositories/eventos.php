@@ -16,7 +16,7 @@ use GuzzleHttp\Client;
 /*----------------+
 | Consumo de API  |
 +-----------------*/
-class Productos {
+class Eventos {
 
     protected $client;
 
@@ -34,7 +34,7 @@ class Productos {
     //Función que devuelve todos los productos consumiendo desde la API
     public function all(){
 
-        $response = $this->client->request('GET', 'index.php/productos');
+        $response = $this->client->request('GET', 'index.php/eventos');
        
         //Descodifica el Json que se devuelve en la API y muestra el contenido
         return json_decode ( $response->getBody()->getContents() );
@@ -51,9 +51,13 @@ class Productos {
 
     public function post(){
 
-        $response = $this->client->request('post','index.php/productos');
-        return json_decode( $response->getBody()->getContents());
- 
+
+        
+        $url = "http://myexample.com/api/posts";
+        $myBody['name'] = "Demo";
+        $request = $client->post($url,  ['body'=>$myBody]);
+        $response = $request->send();
+
         dd($response);
     }
 

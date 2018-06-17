@@ -36,9 +36,24 @@
 
                             <br>
 
-                            <form  action="adminProductos" method="POST">
+                            <form  action="{{ route('productos.index')}}" method="POST">
                               {{ csrf_field() }}
 
+                                <div class="form-group">
+                                    <label for="idCategoria">Categoría del producto:</label>
+                                    <select class="form-control" name="idCatedoria" id="idCategoria">
+                                                    
+                                        @foreach($categorias as $categoria)
+                                            <option value="{{ $categoria->idCategoria }}"> 
+                                                {{ $categoria->Nombre }}
+                                            </option>
+                                        @endforeach
+    
+                                    </select>
+    
+                                </div>
+                              
+                              
                                 <div class="form-group">
                                     <label for="Nombre">Nombre</label>
                                     <input type="text" class="form-control" name="Nombre" id="Nombre">
@@ -54,27 +69,13 @@
                                     <input type="text" class="form-control" name="Precio" id="Precio">
                                 </div>
 
-                                <div class="form-group">
-                                    <label for="idCategoria">Categoría del producto:</label>
-                                    <select class="form-control" name="idCatedoria" id="idCategoria">
-                                                    
-                                        @foreach($categorias as $categoria)
-                                            <option value="{{ $categoria->idCategoria }}"> 
-                                                {{ $categoria->Nombre }}
-                                            </option>
-                                        @endforeach
-    
-                                    </select>
-    
-                                </div>
-
                                 <br>
 
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <input type="submit"  value="Guardar" class="btn btn-success btn-primary">
                                     <a href="{{ route('productos.index') }}" class="btn btn-info btn-primary" >Atrás</a>
                                 </div>	
-                              
+                                
                             </form>
 
 

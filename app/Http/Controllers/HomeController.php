@@ -3,10 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Repositories\Eventos;
 use GuzzleHttp\Client;
 
 class HomeController extends Controller
 {
+    protected $eventos;
+    
     /**
      * Create a new controller instance.
      *
@@ -14,7 +17,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth'); 
     }
 
     /**
@@ -22,10 +25,10 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Eventos $eventos)
     {
-        return view('AdminTheme.master');
+        $this->eventos=$eventos;
+        return view('AdminTheme.master')->with(compact('eventos'));
     }
-
 
 }

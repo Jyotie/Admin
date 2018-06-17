@@ -12,6 +12,7 @@ use Barryvdh\DomPDF\Facade as PDF;
 class ProductosController extends Controller
 {
     protected $productos;
+    protected $eventos;
 
     public function __construct(Productos $productos){
 
@@ -33,7 +34,8 @@ class ProductosController extends Controller
        
         //Esto hace referencia a la clase productos donte esta la conexion a la API
         $productos = $this->productos->all();
-        return view('AdminTheme.adminProd', compact('productos'));
+        $eventos = $this->productos->getEventos();
+        return view('AdminTheme.adminProd', compact('productos','eventos'));
     
     }
 
@@ -47,8 +49,8 @@ class ProductosController extends Controller
 
     public function create(){
 
-        $productos = $this->productos->post();
-        //$productos = Producto::all();
+        //$productos = $this->productos->post();
+        $productos = Producto::all();
         $categorias = Categoria::all();
         return view('AdminTheme.adProductos')->with(compact('productos','categorias'));
     }

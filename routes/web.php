@@ -3,6 +3,7 @@
 
 
 App::setLocale('es');
+
 use App\Models\Producto;
 use App\Models\Evento;
 use App\Models\Comanda;
@@ -13,12 +14,12 @@ use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 
 Auth::routes();
-//Route::get('/', 'HomeController@index');
+Route::get('/', 'HomeController@index');
 
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('AdminTheme.master');
-});
+});*/
 
 
 //Route::get('/','HomeController@index');
@@ -99,3 +100,7 @@ Route::get('/tpv', function (){
     return view('layouts.tpv')->with(compact('productos','categorias'));
 });
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
