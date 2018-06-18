@@ -19,7 +19,7 @@
                       <div class="panel box-shadow-none content-header">
                           <div class="panel-body">
                             <div class="col-md-12">
-                                <h3 class="animated fadeInLeft">Administración de Productos - Añade productos nuevos</h3>
+                                <h3 class="animated fadeInLeft">Administración de Productos - Edita productos</h3>
                             </div>
                           </div>
                       </div>

@@ -69,8 +69,8 @@ Route::resource('eventos', 'EventosController');
 
 
 //Route::get('/adminEventos','EventosController@index');
-//Route::get('/adEventos','EventosController@create');
-//Route::post('/adminEventos','EventosController@store');
+Route::get('/adEventos','EventosController@create');
+Route::post('/adminEventos','EventosController@store');
 
 
 

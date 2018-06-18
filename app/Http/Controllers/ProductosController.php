@@ -42,7 +42,6 @@ class ProductosController extends Controller
 
     public function show(Producto $idProducto){
         
-
         return view('AdminTheme.adminProd', compact('idProducto'));
     }
 
@@ -58,9 +57,10 @@ class ProductosController extends Controller
 
     public function store(Request $request){
 
+        
         Producto::create($request->all());
-
-        return redirect()->route('productos.index')->with('success','Producto creado correctamente');
+        //$productos = $this->productos->post();
+        return redirect()->route('productos.index');
 
     }
     
@@ -74,20 +74,25 @@ class ProductosController extends Controller
     {
         //
         $productos=Producto::find($id);
-        return view('productos.edit',compact('productos'));
+        $categorias = Categoria::all();
+        return view('AdminTheme.editProductos',compact('productos', 'categorias'));
     }
-
-
-
-
 
     public function update(){
 
         //
-        //$productos = $this->productos->post();
-        //return view('AdminTheme.adminProd', compact('productos'));
+        $this->validate($request,[ 
+            'Nombre'=>'required', 
+            'Descripcion'=>'required', 
+            'Precio'=>'required', 
+            'idCategoria'=>'required'
+            ]);
+ 
         Producto::find($id)->update($request->all());
-        return redirect()->route('productos.index')->with('success','Producto actualizado correctamente');
+        return redirect()->route('productos.index')->with('success','Registro actualizado satisfactoriamente');
+ 
+        //Producto::find($id)->update($request->all());
+        //return redirect()->route('productos.index')->with('success','Producto actualizado correctamente');
  
     }
 

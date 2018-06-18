@@ -31,7 +31,12 @@ class Eventos {
     }
 
 
-    //Función que devuelve todos los productos consumiendo desde la API
+    /*
+     * Función que devuelve todos los eventos
+     * consumiendo desde la API
+     * json_decode recive el JSON de la API Y 
+     * devuelve un array de eventos.
+     */
     public function all(){
 
         $response = $this->client->request('GET', 'index.php/eventos');
@@ -39,25 +44,13 @@ class Eventos {
         //Descodifica el Json que se devuelve en la API y muestra el contenido
         return json_decode ( $response->getBody()->getContents() );
     }
-    
-    /*
-     * Devuelve los eventos que consulta en la API
-     */
-    public function getEventos(){
-        $response = $this->client->request('GET','index.php/eventos');
-        return json_decode( $response->getBody()->getContents());
-    }
 
 
     public function post(){
 
-
-        
-        $url = "http://myexample.com/api/posts";
-        $myBody['name'] = "Demo";
-        $request = $client->post($url,  ['body'=>$myBody]);
-        $response = $request->send();
-
+        $response = $this->client->request('post','index.php/eventos');
+        return json_decode( $response->getBody()->getContents());
+ 
         dd($response);
     }
 

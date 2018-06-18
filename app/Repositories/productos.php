@@ -51,10 +51,8 @@ class Productos {
 
     public function post(){
 
-        $response = $this->client->request('post','index.php/productos');
+        $response = $this->client->request('POST','index.php/productos');
         return json_decode( $response->getBody()->getContents());
- 
-        dd($response);
     }
 
     public function store(){
