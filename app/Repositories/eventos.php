@@ -56,9 +56,13 @@ class Eventos {
 
     public function store(){
 
-        $data = new GuzzlePost();
-        $data->name=$request->get('name');
-        $data->save();
+        $eventos = new Evento();
+        $eventos->Nombre=$request->get('Nombre');
+        $eventos->Descripcion=$request->Descripcion;
+        $eventos->FechaInicio=$request->FechaInicio;
+        $eventos->FechaFin=$request->FechaFin;
+        $eventos->Lugar=$request->Lugar;
+        $eventos->save();
 
 
         return response()->json('Añadido correctamente');

@@ -48,14 +48,14 @@ class EventosController extends Controller
 
     public function store(Request $request){
 
-        $eventos = new Evento();
-        $eventos->Nombre=$request->Nombre;
-        $eventos->Descripcion=$request->Descripcion;
-        $eventos->FechaInicio=$request->FechaInicio;
-        $eventos->FechaFin=$request->FechaFin;
-        $eventos->Lugar=$request->Lugar;
-        $eventos->save();
-        //Evento::create($request->all());
+        //$eventos = new Evento();
+        //$eventos->Nombre=$request->Nombre;
+        //$eventos->Descripcion=$request->Descripcion;
+        //$eventos->FechaInicio=$request->FechaInicio;
+        //$eventos->FechaFin=$request->FechaFin;
+        //$eventos->Lugar=$request->Lugar;
+        //$eventos->save();
+        Evento::create($request->all());
         //$eventos = $this->eventos->post();
         return redirect()->route('eventos.index');
 
@@ -74,22 +74,19 @@ class EventosController extends Controller
         return view('AdminTheme.editEventos',compact('eventos'));
     }
 
-    public function update(){
+    public function update(Evento $eventos){
 
         //
-        $this->validate($request,[ 
-            'Nombre'=>'required', 
-            'Descripcion'=>'required', 
-            'FechaInicio'=>'required', 
-            'FechaFin'=>'required',
-            'Lugar'=>'required'
-            ]);
+        $productos->Nombre = request()->Nombre;
+        $productos->Descripcion = request()->Descripcion;
+        $productos->FechaInicio = request()->FechaInicio;
+        $productos->FechaFin = request()->FechaFin;
+        $eventos->Lugar = request()->Lugar;
+        $productos->save();
  
         Evento::find($id)->update($request->all());
-        return redirect()->route('eventos.index')->with('success','Registro actualizado satisfactoriamente');
+        return redirect()->route('eventos.index');
  
-        //Producto::find($id)->update($request->all());
-        //return redirect()->route('productos.index')->with('success','Producto actualizado correctamente');
  
     }
 
@@ -101,7 +98,7 @@ class EventosController extends Controller
 
         
         Evento::find($idEvento)->delete();
-        return redirect()->route('eventos.index')->with('success','Evento eliminado correctamente');
+        return redirect()->route('eventos.index');
 
     
     }

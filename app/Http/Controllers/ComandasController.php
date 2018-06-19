@@ -52,17 +52,17 @@ class ComandasController extends Controller
         return view('AdminTheme.adComandas')->with(compact('comandas','mesas','usuarios'));
     }
 
-    public function store(){
+    public function store(Request $request){
 
-        Comanda::create([
-            'idComanda'=>request('idComanda'),
-            'idMesa'=>request('idMesa'),
-            'idUsuario'=>request('idUsuario'),
-            'fechaEmision'=>request('fechaEmision'),
-            'fechaFin'=>request('fechaFin')
-        ]);
-
-        return redirect('/adminComandas');
+        $comandas = new Evento();
+        $comandas->idComanda=$request->idComanda;
+        $comandas->idMesa=$request->idMEsa;
+        $comandas->fechaEmision=$request->fechaEmision;
+        $comandas->fechaFin=$request->fechaFin;
+        $comandas->save();
+        //Evento::create($request->all());
+        //$eventos = $this->eventos->post();
+        return redirect()->route('comandas.index');
 
     }
 }

@@ -20,7 +20,7 @@ class Producto extends Model
     public $timestamps = false;
     // protected $guarded = ['id'];
     protected $fillable = ['idCategoria','Nombre','Descripcion','Precio'];
-    //protected $hidden = ['updated_at','created_at'];
+    // protected $hidden = ['updated_at','created_at'];
     // protected $dates = [];
 
     /*
@@ -36,12 +36,12 @@ class Producto extends Model
     */
     public function categorias(){
         
-        return $this->belongsTo('App\Models\Categoria', 'idCategoria');
+        return $this->belongsTo(Categoria::class,'idCategoria');
     }
 
     public function comanda(){
         
-        return $this->belongsTo('App\Models\Comanda', 'idComandaProducto');
+        return $this->belongsTo(Comanda::class);
     }
     /*
     |--------------------------------------------------------------------------

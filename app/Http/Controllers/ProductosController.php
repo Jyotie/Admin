@@ -31,11 +31,12 @@ class ProductosController extends Controller
         -aminProd recibe la variable $productos.
     */
     public function index(){
-       
+        
+        $productos = Producto::all();
+        $categoroias = Categoria::all();
         //Esto hace referencia a la clase productos donte esta la conexion a la API
-        $productos = $this->productos->all();
-        $eventos = $this->productos->getEventos();
-        return view('AdminTheme.adminProd', compact('productos','eventos'));
+        //$productos = $this->productos->all();
+        return view('AdminTheme.adminProd', compact('productos','categorias'));
     
     }
 
@@ -57,8 +58,10 @@ class ProductosController extends Controller
 
     public function store(Request $request){
 
-        
+
         Producto::create($request->all());
+        //dd($request->all());
+        //return 'store';
         //$productos = $this->productos->post();
         return redirect()->route('productos.index');
 
@@ -73,23 +76,22 @@ class ProductosController extends Controller
     public function edit($id)
     {
         //
-        $productos=Producto::find($id);
+        $productos = Producto::find($id);
         $categorias = Categoria::all();
-        return view('AdminTheme.editProductos',compact('productos', 'categorias'));
+        return view('AdminTheme.editProductos')->with(compact('productos', 'categorias'));
     }
 
-    public function update(){
+    public function update(Producto $productos){
 
         //
-        $this->validate($request,[ 
-            'Nombre'=>'required', 
-            'Descripcion'=>'required', 
-            'Precio'=>'required', 
-            'idCategoria'=>'required'
-            ]);
- 
-        Producto::find($id)->update($request->all());
-        return redirect()->route('productos.index')->with('success','Registro actualizado satisfactoriamente');
+        $productos->Nombre = request()->Nombre;
+        $productos->Descripcion = request()->Descripcion;
+        $productos->Precio = request()->Precio;
+        $productos->idCategoria = request()->idCategoria;
+        $productos->save();
+        
+        //Producto::find($id)->update($request->all());
+        return redirect()->route('productos.index');
  
         //Producto::find($id)->update($request->all());
         //return redirect()->route('productos.index')->with('success','Producto actualizado correctamente');

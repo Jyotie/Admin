@@ -55,7 +55,8 @@ Route::get('/gestion','ProductosController@gestion');
 //--->PRODUCTOS:
 Route::resource('productos', 'ProductosController');
 
-//Route::get('/adminProductos', 'ProductosController@index');
+Route::get('/adminProductos', 'ProductosController@index');
+Route::get('/adminProductos/{idProducto}/editProducto','ProductosController@edit');
 Route::get('/adProductos', 'ProductosController@create');
 Route::post('/adminProductos','ProductosController@store');
 //--//

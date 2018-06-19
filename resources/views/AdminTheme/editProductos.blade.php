@@ -36,12 +36,13 @@
 
                             <br>
 
-                            <form  action="{{ route('productos.index')}}" method="POST">
+                            <form  action="{{ route('productos.update', $productos->idProducto)}}" method="POST">
                               {{ csrf_field() }}
-
+                              {{ method_field('PATCH') }}
+                              
                                 <div class="form-group">
                                     <label for="idCategoria">Categoría del producto:</label>
-                                    <input type="text" class="form-control" name="idCategoria" id="idCategoria">
+                                    --<input type="text" class="form-control" name="idCategoria" id="idCategoria">
                                     <!--<select class="form-control" name="idCatedoria" id="idCategoria">
                                                     
                                         @foreach($categorias as $categoria)
@@ -57,17 +58,17 @@
                               
                                 <div class="form-group">
                                     <label for="Nombre">Nombre</label>
-                                    <input type="text" class="form-control" name="Nombre" id="Nombre">
+                                    <input value="{{ $productos->Nombre }}" type="text" class="form-control" name="Nombre" id="Nombre">
                                 </div>
 
                                 <div class="form-group">
                                     <label for="Descripcion">Descripción</label>
-                                    <input type="text" class="form-control" name="Descripcion" id="Descripcion">
+                                    <input value="{{ $productos->Descripcion }}" type="text" class="form-control" name="Descripcion" id="Descripcion">
                                 </div>
 
                                 <div class="form-group">
                                     <label for="Precio">Precio</label>
-                                    <input type="text" class="form-control" step="any" name="Precio" id="Precio">
+                                    <input value="{{ $productos->Precio }}" type="text" class="form-control" step="any" name="Precio" id="Precio">
                                 </div>
 
                                 <br>
@@ -89,7 +90,7 @@
     </div>
 
     
-
+    </body>
 <!-- start: Javascript -->
 <script src="asset/js/jquery.min.js"></script>
 <script src="asset/js/jquery.ui.min.js"></script>
