@@ -111,9 +111,7 @@ class ProductosController extends Controller
     
     }
 
-
-
-
+    
     /*---------------------------------------------------------+
      |  * Funcion para generar un PDF                          |
      |  * Método loadView carga una vista para generar el PDF  |

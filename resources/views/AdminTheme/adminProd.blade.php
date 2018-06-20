@@ -164,7 +164,7 @@
                         <ul class="nav nav-list">
                             <li class="active ripple">
                                 <a class="tree-toggle nav-header">
-                                    <span class="fa-home fa"></span>Dashboard 
+                                    <span class="fa-home fa"></span>Menú Principal
                                     <span class="fa-angle-right fa right-arrow text-right"></span>
                                 </a>
                                 <ul class="nav nav-list tree">
@@ -352,8 +352,7 @@
 
                                                 doPlot("right");
 
-                                            }
-                                            ;
+                                            };
             </script>
 
             <!-- OPCION BORRAR -->

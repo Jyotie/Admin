@@ -31,7 +31,6 @@
                             <div class="panel-heading" style="text-align:center;">
                                 @include('AdminTheme.themeAdmin.botonesAdministracion')
                                 <br>
-                                <a  href="adComandas" class="btn btn-default"> Añadir </a>
                                 <a href="excel" class="btn btn-primary">Exportar a Excel</a>
                                 <a href="descargar-productos" class="btn btn-primary">Descargar PDF</a>
                             </div>

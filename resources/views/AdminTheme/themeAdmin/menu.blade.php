@@ -33,10 +33,10 @@
                   <span class="fa-angle-right fa right-arrow text-right"></span>
                 </a>
                 <ul class="nav nav-list tree">
-                  <li><a href="chartjs.html">ChartJs</a></li>
+                  <!--<li><a href="chartjs.html">ChartJs</a></li>
                   <li><a href="morris.html">Morris</a></li>
                   <li><a href="flot.html">Flot</a></li>
-                  <li><a href="sparkline.html">SparkLine</a></li>
+                  <li><a href="sparkline.html">SparkLine</a></li>-->
                 </ul>
               </li>
               
@@ -49,3 +49,8 @@
           </div>
       </div>
     <!-- end: Left Menu -->
+    
+    
+    
+    
+    

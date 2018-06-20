@@ -192,7 +192,7 @@
    //  end:  Chart =============
 
    // start: Calendar =========
-    $('.dashboard .calendar').fullCalendar({
+    /*$('.dashboard .calendar').fullCalendar({
        header: {
            left: 'prev,next today',
            center: 'title',
@@ -201,7 +201,7 @@
        defaultDate: '2015-02-12',
        businessHours: true, // display business hours
        editable: true,
-       events: [
+       /*events: [
            {
                title: 'Business Lunch',
                start: '2015-02-03T13:00:00',
@@ -252,8 +252,8 @@
                rendering: 'background',
                color: '#FF6656'
            }
-       ]
-   });
+       ]*/
+   //});
    // end : Calendar==========
 
  })(jQuery);
