@@ -122,9 +122,10 @@ class ProductosController extends Controller
          * toma en cuenta que para ver los mismos 
          * datos debemos hacer la misma consulta
         **/
-        $productos = Producto::all(); 
+        $productos = Producto::all();
+        $categorias = Categoria::all();
 
-        $pdf = PDF::loadView('AdminTheme.adminProd', compact('productos'));
+        $pdf = PDF::loadView('pdf.layout', compact('productos','categorias'));
 
         return $pdf->download('listado.pdf');
     }

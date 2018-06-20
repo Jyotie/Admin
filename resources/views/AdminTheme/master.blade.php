@@ -98,7 +98,7 @@
                                     </div>
                                     <div class="panel-body text-center text-white">
                                         <hr/>
-                                        <a href="http://localhost:8888/qarmitaWeb/public/" class="btn" >
+                                        <a title="Acceso directo a la página web" href="http://localhost:8888/qarmitaWeb/public/" class="btn" >
                                             <span class="animated fadeInUp quote">Acceso Web</span>
                                         </a>
                                         <hr/>
@@ -108,24 +108,23 @@
                                     </div>
                                 </div>
                             </div>
+                            
                             <!-- Acceso a la página web -->
 
-
                             <div class="col-md-12 padding-0">
-                                <!-- Acceso a la página web -->
-                                <div class="panel bg-grey">
-                                    <div class="col-md-6 col-sm-6 col-xs-6 text-left padding-0">
-                                        <h4 class="text-left"></h4>
+                                <div class="panel box-v2">
+                                    <div class="panel-heading padding-0">
+                                        <img src="asset/img/bg1.jpg" class="box-v2-cover img-responsive"/>
+                                        <div class="box-v2-detail">
+                                            <a title="Acceso a un menú general de administración de los productos de la empresa" href="gestion" class="btn" >
+                                                <span class="animated fadeInUp quote">GESTIÓN</span>
+                                            </a>
+                                            <hr/>
+                                            <p> </p>
+                                            <span class="animated fadeInUp quote">Administra tus productos</span>
+                                        </div>
                                     </div>
-                                    <div class="panel-body text-center text-white">
-                                        <hr/>
-                                        <a title="Acceso a un menú general de administración de los productos de la empresa" href="gestion" class="btn" >
-                                            <span class="animated fadeInUp quote">GESTIÓN</span>
-                                        </a>
-                                        <hr/>
-                                        <p></p>
-                                        <span class="animated fadeInUp quote">Administra tus productos</span>
-                                    </div>
+
                                 </div>
                             </div>
                             <!-- Acceso a la página web -->

@@ -4,8 +4,8 @@
           <ul class="nav nav-list">
               <li><div class="left-bg"></div></li>
               <li class="time">
-                <h1 class="animated fadeInLeft">21:00</h1>
-                <p class="animated fadeInRight">Sat,October 1st 2029</p>
+                <h1 class="animated fadeInLeft">  </h1>
+                <p class="animated fadeInRight">  </p>
               </li>
               <li class="active ripple">
                 <a class="tree-toggle nav-header"><span class="fa-home fa"></span> Menú Principal 
@@ -33,8 +33,8 @@
                   <span class="fa-angle-right fa right-arrow text-right"></span>
                 </a>
                 <ul class="nav nav-list tree">
-                  <!--<li><a href="chartjs.html">ChartJs</a></li>
-                  <li><a href="morris.html">Morris</a></li>
+                  <li><a href="estadisticas">Ver Estadísticas</a></li>
+                  <!--<li><a href="morris.html">Morris</a></li>
                   <li><a href="flot.html">Flot</a></li>
                   <li><a href="sparkline.html">SparkLine</a></li>-->
                 </ul>

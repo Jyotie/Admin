@@ -28,6 +28,10 @@ Route::get('/calendario', function () {
     return view('AdminTheme.calendario');
 });
 
+Route::get('/estadisticas',function(){
+    return view('AdminTheme.estadisticas');
+});
+
 Route::get('/creditos', function () {
     return view('AdminTheme.creditos');
 });
@@ -94,6 +98,11 @@ Route::post('/adminMesas','MesasController@store');
 
 Route::get('descargar-productos', 'ProductosController@pdf');
 
+Route::get('/descarga',function(){
+    $productos = Producto::all();
+    $categorias = Categoria::all();
+    return view('pdf.layout')->with(compact('productos','categorias'));
+});
 
 Route::get('/tpv', function (){
     $productos = Producto::all();
