@@ -19,8 +19,8 @@ class Comanda extends Model
     protected $primaryKey = 'idComandaProducto';
     // public $timestamps = false;
     // protected $guarded = ['id'];
-    protected $fillable = [];
-     protected $hidden = [];
+    protected $fillable = ['idComanda','idProducto','Cantidad','Precio'];
+     protected $hidden = ['idComandaProducto'];
     // protected $dates = [];
 
     /*

@@ -19,7 +19,7 @@
                             <div class="panel box-shadow-none content-header">
                                 <div class="panel-body">
                                     <div class="col-md-12">
-                                        <h3 class="animated fadeInLeft">Administración de Productos - Edita productos</h3>
+                                        <h3 class="animated fadeInLeft">Administración de Eventos - Edita eventos</h3>
                                     </div>
                                 </div>
                             </div>
@@ -36,46 +36,41 @@
 
                                     <br>
 
-                                    <form  action="{{ route('productos.update', $productos->idProducto)}}" method="POST">
+                                    <form  action="{{ route('eventos.update', $eventos->idEvento )}}" method="POST">
                                         {{ csrf_field() }}
                                         {{ method_field('PATCH') }}
 
                                         <div class="form-group">
-                                            <label for="idCategoria">Categoría del producto:</label>
-                                            <!--<input type="text" class="form-control" name="idCategoria" id="idCategoria">-->
-                                            <select class="form-control" name="idCategoria" id="idCategoria">
-
-                                                @foreach($categorias as $categoria)
-                                                <option value="{{ $categoria->idCategoria }}"> 
-                                                    {{ $categoria->Nombre }}
-                                                </option>
-                                                @endforeach
-
-                                            </select>
-
+                                            <label for="Nombre">Nombre del evento:</label>
+                                            <input type="text" class="form-control" name="Nombre" id="Nombre" value="{{ $eventos->Nombre }}">
                                         </div>
 
 
                                         <div class="form-group">
-                                            <label for="Nombre">Nombre</label>
-                                            <input value="{{ $productos->Nombre }}" type="text" class="form-control" name="Nombre" id="Nombre">
+                                            <label for="Descripcion">Descripción del evento:</label>
+                                            <input value="{{ $eventos->Descripcion }}" type="text" class="form-control" name="Descripcion" id="Descripcion">
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="Descripcion">Descripción</label>
-                                            <input value="{{ $productos->Descripcion }}" type="text" class="form-control" name="Descripcion" id="Descripcion">
+                                            <label for="FechaInicio">Fecha Inicio del evento:</label>
+                                            <input value="{{ $eventos->FechaInicio }}" type="date" class="form-control" name="FechaInicio" id="FechaInicio" value="{{ $eventos->FechaInicio }}">
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="Precio">Precio</label>
-                                            <input value="{{ $productos->Precio }}" type="text" class="form-control" step="any" name="Precio" id="Precio">
+                                            <label for="FechaFin">Fecha fin del evento:</label>
+                                            <input value="{{ $eventos->FechaFin }}" type="date" class="form-control" name="FechaFin" id="FechaFin" value="{{ $eventos->FechaFin }}">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="Lugar">Lugar:</label>
+                                            <input type="text" class="form-control" name="Lugar" id="Lugar" value="{{ $eventos->Lugar }}">
                                         </div>
 
                                         <br>
 
                                         <div class="col-xs-12 col-sm-12 col-md-12">
                                             <input type="submit"  value="Guardar" class="btn btn-success btn-primary">
-                                            <a href="{{ route('productos.index') }}" class="btn btn-info btn-primary" >Atrás</a>
+                                            <a href="{{ route('eventos.index') }}" class="btn btn-info btn-primary" >Atrás</a>
                                         </div>	
 
                                     </form>

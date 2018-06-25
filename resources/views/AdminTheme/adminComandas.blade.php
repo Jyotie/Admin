@@ -31,8 +31,7 @@
                             <div class="panel-heading" style="text-align:center;">
                                 @include('AdminTheme.themeAdmin.botonesAdministracion')
                                 <br>
-                                <a href="excel" class="btn btn-primary">Exportar a Excel</a>
-                                <a href="descargar-productos" class="btn btn-primary">Descargar PDF</a>
+                                <!--<a href="{{ route('vistaComandasPDF',['descargar'=>'pdf']) }}" class="btn btn-primary">Descargar PDF</a>-->
                             </div>
                             <br>
                           <div class="panel-body">

@@ -15,9 +15,8 @@
 
             <!-- VENTANA POPUP PARA AÑADIR EVENTOS -->
             <div id="popup" class="popup col-lg-12">
-                <a onclick="closeDialog('popup');" class="close"></a>
+                
                 <div>
-
 
                     <div class="col-md-12 padding-0">
                         <div class="panel box-shadow-none content-header">
@@ -99,8 +98,7 @@
                                         <br>
                                         <a id="crear" onclick="openDialog();" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span></a>
                                         <!--<a href="adEventos" class="btn btn-default"> Añadir </a>-->
-                                        <a href="excel" class="btn btn-primary">Exportar a Excel</a>
-                                        <a href="descargar-productos" class="btn btn-primary">Descargar PDF</a>
+                                        
                                     </div>
                                     <br>
                                     <div class="panel-body">
@@ -124,8 +122,8 @@
                                                             <tr class="gradeA odd" role="row">
                                                                 <td>{{ $even->Nombre}}</td>
                                                                 <td>{{ $even->Descripcion }}</td>
-                                                                <td>{{ $even->FechaInicio }}</td>
-                                                                <td>{{ $even->FechaFin }}</td>
+                                                                <td>{{ Carbon\Carbon::parse($even->FechaInicio)->format('d/m/y') }}</td>
+                                                                <td>{{ Carbon\Carbon::parse($even->FechaFin)->format('d/m/y') }}</td>
                                                                 <td>{{ $even->Lugar }}</td>
                                                                 <td>
                                                                     <a class="btn btn-primary btn-xs" href="{{ action('EventosController@edit', $even->idEvento) }}" ><span class="glyphicon glyphicon-pencil"></span></a>

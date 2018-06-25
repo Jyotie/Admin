@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Repositories\Eventos;
+use App\Models\Evento;
 use GuzzleHttp\Client;
 
 class HomeController extends Controller
@@ -27,8 +28,14 @@ class HomeController extends Controller
      */
     public function index(Eventos $eventos)
     {
-        $this->eventos=$eventos;
+        $eventos = Evento::all();
+        //$this->eventos=$eventos;
         return view('AdminTheme.master')->with(compact('eventos'));
+    }
+    
+    public function perfil(){
+ 
+        return view('AdminTheme.perfil');
     }
 
 }

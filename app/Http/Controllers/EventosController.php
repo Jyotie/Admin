@@ -77,14 +77,14 @@ class EventosController extends Controller
     public function update(Evento $eventos){
 
         //
-        $productos->Nombre = request()->Nombre;
-        $productos->Descripcion = request()->Descripcion;
-        $productos->FechaInicio = request()->FechaInicio;
-        $productos->FechaFin = request()->FechaFin;
+        $eventos->Nombre = request()->Nombre;
+        $eventos->Descripcion = request()->Descripcion;
+        $eventos->FechaInicio = request()->FechaInicio;
+        $eventos->FechaFin = request()->FechaFin;
         $eventos->Lugar = request()->Lugar;
-        $productos->save();
+        $eventos->save();
  
-        Evento::find($id)->update($request->all());
+        //Evento::find($id)->update($request->all());
         return redirect()->route('eventos.index');
  
  
@@ -96,11 +96,9 @@ class EventosController extends Controller
     */
     public function destroy($idEvento){
 
-        
         Evento::find($idEvento)->delete();
         return redirect()->route('eventos.index');
 
-    
     }
 
 

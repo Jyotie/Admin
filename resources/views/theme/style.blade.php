@@ -5,6 +5,9 @@
     h1{
         color: white;
     }
+    h4{
+        color: black;
+    }
 
     #contenedorProductos{
         padding-top: 50px;

@@ -12,7 +12,7 @@
                   <span class="fa-angle-right fa right-arrow text-right"></span>
                 </a>
                 <ul class="nav nav-list tree">
-                    <li><a href="/">Menú Principal</a></li>
+                    <li><a href="{{ route('main.index') }}">Menú Principal</a></li>
                 </ul>
               </li>
               <li class="ripple">
@@ -22,7 +22,7 @@
                 </a>
                 <ul class="nav nav-list tree">
                   <li><a href="{{ route('productos.index') }}">Gestión de Productos</a></li>
-                  <li><a href="boxed.html">Gestión de Mesas</a></li>
+                  <li><a href="{{ route('mesas.index') }}">Gestión de Mesas</a></li>
                   <li><a href="adminComandas">Gestión de Comandas</a></li>
                   <li><a href="{{ route('eventos.index') }}">Gestión de Eventos</a></li>
                 </ul>

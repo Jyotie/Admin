@@ -5,7 +5,6 @@
         <group>
             <file>file:/Applications/MAMP/htdocs/nuevo/resources/views/AdminTheme/adminProd.blade.php</file>
             <file>file:/Applications/MAMP/htdocs/nuevo/app/Http/Controllers/ProductosController.php</file>
-            <file>file:/Applications/MAMP/htdocs/nuevo/routes/web.php</file>
         </group>
     </open-files>
 </project-private>

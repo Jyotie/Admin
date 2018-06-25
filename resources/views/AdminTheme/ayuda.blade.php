@@ -16,9 +16,9 @@
                 <div class="panel box-shadow-none content-header">
                     <div class="panel-body">
                         <div class="col-md-12">
-                            <h3 class="animated fadeInLeft">Créditos</h3>
+                            <h3 class="animated fadeInLeft">Panel de ayuda al usuario</h3>
                             <p class="animated fadeInDown">
-                                Menú Principal <span class="fa-angle-right fa"></span> Créditos
+                                Menú Principal <span class="fa-angle-right fa"></span> Ayuda Usuario
                             </p>
                         </div>
                     </div>
@@ -28,8 +28,9 @@
                         <div class="pull-right article-v1-time">
                             <em> Administración La Qarmita V.1.0</em></div>
                         <div class="panel-body">
-                            <div class="col-md-12 text-left article-v1-title">
-                                <h2>Creado por: Daniel García & Julio García</h2>
+                            <div class="col-md-15 text-left article-v1-title">
+                                <image src="asset/img/ayuda.png" />
+                                <p>Creado por: Daniel García & Julio García</p>
                                 <p> Proyecto final -->
                                     <a href="http://www.cescristorey.com">C.E.S. Cristo Rey.</<>
                                 </p>

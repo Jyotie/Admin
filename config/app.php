@@ -78,7 +78,7 @@ return [
     |
     */
 
-    'locale' => 'es_ES',
+    'locale' => 'es',
 
     /*
     |--------------------------------------------------------------------------
@@ -91,7 +91,7 @@ return [
     |
     */
 
-    'fallback_locale' => 'es',
+    'fallback_locale' => 'en',
 
     /*
     |--------------------------------------------------------------------------
@@ -147,6 +147,7 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         Barryvdh\DomPDF\ServiceProvider::class,
+        Laraveles\Spanish\SpanishServiceProvider::class,
 
         /*
          * Package Service Providers...

@@ -8,12 +8,16 @@ use App\Models\Producto;
 use App\Models\Evento;
 use App\Models\Comanda;
 use App\Models\Mesa;
+use App\User;
 use App\Models\Categoria;
 
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 
 Auth::routes();
+
+
+Route::resource('main','HomeController');
 Route::get('/', 'HomeController@index');
 
 
@@ -36,8 +40,11 @@ Route::get('/creditos', function () {
     return view('AdminTheme.creditos');
 });
 
-Route::get('/perfil', function () {
-    return view('AdminTheme.perfil');
+Route::get('/perfil', 'UserController@index');
+
+Route::get('/ayuda',function(){
+   
+    return view('AdminTheme.ayuda');
 });
 
 //-----------------AUTENTICACIÓN----------------------//
@@ -86,6 +93,9 @@ Route::post('/adminComandas','ComandasController@store');
 
 
 //--->MESAS
+Route::resource('mesas','MesasController');
+
+
 Route::get('/adminMesas','MesasController@index');
 Route::get('/adMesas','MesasController@create');
 Route::post('/adminMesas','MesasController@store');
@@ -96,15 +106,29 @@ Route::post('/adminMesas','MesasController@store');
 
 
 
-Route::get('descargar-productos', 'ProductosController@pdf');
+//------------------DESCARGA DE DOCUMENTOS-------------------//
+Route::get('vista-html-pdf',array(
+    'as'=>'vistaHTMLPDF',
+    'uses'=>'ProductosController@vistaHTMLPDF'
+));
 
-Route::get('/descarga',function(){
+Route::get('vista-comandas',array(
+    'as'=>'vistaComandasPDF',
+    'uses'=>'ComandasController@vistaComandasPDF'
+));
+//------------------DESCARGA DE DOCUMENTOS-------------------//
+
+
+Route::resource('mesa','MesasController');
+
+Route::get('/mesa', function (){
     $productos = Producto::all();
     $categorias = Categoria::all();
-    return view('pdf.layout')->with(compact('productos','categorias'));
+    $mesas = Mesa::all();
+    return view('layouts.mesas')->with(compact('productos','categorias','mesas'));
 });
 
-Route::get('/tpv', function (){
+Route::get('/mesa/{id}/tpv',function(){
     $productos = Producto::all();
     $categorias = Categoria::all();
     return view('layouts.tpv')->with(compact('productos','categorias'));

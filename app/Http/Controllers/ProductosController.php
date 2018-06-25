@@ -33,7 +33,7 @@ class ProductosController extends Controller
     public function index(){
         
         $productos = Producto::all();
-        $categoroias = Categoria::all();
+        $categorias = Categoria::all();
         //Esto hace referencia a la clase productos donte esta la conexion a la API
         //$productos = $this->productos->all();
         return view('AdminTheme.adminProd', compact('productos','categorias'));
@@ -99,34 +99,21 @@ class ProductosController extends Controller
     }
 
 
-    /*
-        Funcion para eliminar los productos
-    */
-    public function destroy($idProducto){
-
-        
-        Producto::find($idProducto)->delete();
-        return redirect()->route('productos.index')->with('success','Encuesta eliminada correctamente');
-
-    
-    }
-
     
     /*---------------------------------------------------------+
      |  * Funcion para generar un PDF                          |
      |  * Método loadView carga una vista para generar el PDF  |
      +---------------------------------------------------------*/
-    public function pdf()
-    {        
-        /**
-         * toma en cuenta que para ver los mismos 
-         * datos debemos hacer la misma consulta
-        **/
-        $productos = Producto::all();
+    public function vistaHTMLPDF(Request $request)
+    {
+        
+        $productos = Producto::all();//OBTENGO TODOS MIS PRODUCTO
         $categorias = Categoria::all();
-
-        $pdf = PDF::loadView('pdf.layout', compact('productos','categorias'));
-
-        return $pdf->download('listado.pdf');
+        view()->share('productos',$productos,'categorias',$categorias);//VARIABLE GLOBAL PRODUCTOS
+        if($request->has('descargar')){
+            $pdf = PDF::loadView('pdf.vista-html-pdf');//CARGO LA VISTA
+            return $pdf->download('toda-la-lista-de-productos.pdf');//SUGERIR NOMBRE A DESCARGAR
+        }
+        return view('adminProd');//RETORNO A MI VISTA
     }
 }
